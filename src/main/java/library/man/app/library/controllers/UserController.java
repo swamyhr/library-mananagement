@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/users/")
+@CrossOrigin(origins="http://localhost:3000")
 public class UserController {
 
     @Autowired
@@ -19,6 +20,7 @@ public class UserController {
 
     @PostMapping("")
     public ResponseObj createUser(@RequestBody User user) {
+        System.out.println("User "+ user.getUserName() + " " + user.getName() + " " + user.getPhoneNumber());
         User newUser = userService.createUser(user);
         ResponseObj response;
 
